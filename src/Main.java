@@ -1,11 +1,13 @@
 public class Main {
 
     public static void main(String[] args) {
-        MarketplaceGodObject marketplace = new MarketplaceGodObject();
+        OrderCalculator calculator = new OrderCalculator();
+        OrderRepository repository = new OrderRepository();
+        EmailSender emailSender = new EmailSender();
 
-        int total = marketplace.calculateTotal(3000, 2);
+        int total = calculator.calculateTotal(3000, 2);
 
-        marketplace.saveOrder("Наушники", total);
-        marketplace.sendEmail("buyer@example.com", total);
+        repository.saveOrder("Наушники", total);
+        emailSender.sendEmail("buy@example.com", total);
     }
 }
